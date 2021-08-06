@@ -22,10 +22,43 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
+        Me.btnConectar = New System.Windows.Forms.Button()
+        Me.lblResultado = New System.Windows.Forms.Label()
+        Me.SuspendLayout()
+        '
+        'btnConectar
+        '
+        Me.btnConectar.Location = New System.Drawing.Point(63, 62)
+        Me.btnConectar.Name = "btnConectar"
+        Me.btnConectar.Size = New System.Drawing.Size(152, 44)
+        Me.btnConectar.TabIndex = 0
+        Me.btnConectar.Text = "Conectar"
+        Me.btnConectar.UseVisualStyleBackColor = True
+        '
+        'lblResultado
+        '
+        Me.lblResultado.AutoSize = True
+        Me.lblResultado.Location = New System.Drawing.Point(63, 129)
+        Me.lblResultado.Name = "lblResultado"
+        Me.lblResultado.Size = New System.Drawing.Size(333, 32)
+        Me.lblResultado.TabIndex = 1
+        Me.lblResultado.Text = "Conexion a la base de datos"
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 32.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblResultado)
+        Me.Controls.Add(Me.btnConectar)
+        Me.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Name = "Form1"
         Me.Text = "Form1"
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
     End Sub
 
+    Friend WithEvents btnConectar As Button
+    Friend WithEvents lblResultado As Label
 End Class
