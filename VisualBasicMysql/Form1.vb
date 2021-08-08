@@ -70,4 +70,37 @@ Public Class Form1
 
 
     End Sub
+
+    Private Sub btnInsertar_Click(sender As Object, e As EventArgs) Handles btnInsertar.Click
+        Dim mensajeError = ""
+        If txtInNombre.Text = "" Then
+            mensajeError = mensajeError & "Falta ingresar nombre " & vbLf
+        End If
+        If txtInPuesto.Text = "" Then
+            mensajeError = mensajeError & "Falta ingresar puesto" & vbLf
+        End If
+        If txtInEdad.Text = "" Then
+            mensajeError = mensajeError & "Falta ingresar edad" & vbLf
+        End If
+        If mensajeError = "" Then
+            Dim query = "insert into trabajadores " &
+                "(nombre                    ,puesto                    ,edad) values " &
+                "('" & txtInNombre.Text & "','" & txtInPuesto.Text & "','" & txtInEdad.Text & "');"
+            Dim comando = New MySqlCommand(query, myCon)
+            Try
+                Dim reader = comando.ExecuteReader()
+                reader.Close()
+                dgTrabajadores.Rows.Clear()
+                dgTrabajadores.Refresh()
+                llenarTabla()
+            Catch ex As Exception
+                lblResultado.Text = ex.ToString
+            End Try
+        Else
+            MessageBox.Show(mensajeError)
+        End If
+        txtInNombre.Text = ""
+        txtInPuesto.Text = ""
+        txtInEdad.Text = ""
+    End Sub
 End Class

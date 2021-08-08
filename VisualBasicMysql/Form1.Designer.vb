@@ -35,13 +35,20 @@ Partial Class Form1
         Me.txtBusPuesto = New System.Windows.Forms.TextBox()
         Me.txtBusEdad = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtInNombre = New System.Windows.Forms.TextBox()
+        Me.txtInPuesto = New System.Windows.Forms.TextBox()
+        Me.txtInEdad = New System.Windows.Forms.TextBox()
+        Me.btnInsertar = New System.Windows.Forms.Button()
         CType(Me.dgTrabajadores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblResultado
         '
         Me.lblResultado.AutoSize = True
-        Me.lblResultado.Location = New System.Drawing.Point(30, 377)
+        Me.lblResultado.Location = New System.Drawing.Point(32, 664)
         Me.lblResultado.Name = "lblResultado"
         Me.lblResultado.Size = New System.Drawing.Size(333, 32)
         Me.lblResultado.TabIndex = 1
@@ -51,7 +58,7 @@ Partial Class Form1
         '
         Me.dgTrabajadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgTrabajadores.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colId, Me.colNombre, Me.colPuesto, Me.colEdad})
-        Me.dgTrabajadores.Location = New System.Drawing.Point(30, 129)
+        Me.dgTrabajadores.Location = New System.Drawing.Point(32, 416)
         Me.dgTrabajadores.Name = "dgTrabajadores"
         Me.dgTrabajadores.RowTemplate.Height = 25
         Me.dgTrabajadores.Size = New System.Drawing.Size(556, 245)
@@ -83,7 +90,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(30, 24)
+        Me.Label1.Location = New System.Drawing.Point(32, 25)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(108, 32)
         Me.Label1.TabIndex = 3
@@ -92,7 +99,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(229, 24)
+        Me.Label2.Location = New System.Drawing.Point(231, 311)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(92, 32)
         Me.Label2.TabIndex = 3
@@ -101,7 +108,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(434, 24)
+        Me.Label3.Location = New System.Drawing.Point(436, 311)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(70, 32)
         Me.Label3.TabIndex = 4
@@ -109,45 +116,109 @@ Partial Class Form1
         '
         'txtBusNombre
         '
-        Me.txtBusNombre.Location = New System.Drawing.Point(30, 72)
+        Me.txtBusNombre.Location = New System.Drawing.Point(32, 359)
         Me.txtBusNombre.Name = "txtBusNombre"
         Me.txtBusNombre.Size = New System.Drawing.Size(152, 39)
         Me.txtBusNombre.TabIndex = 5
         '
         'txtBusPuesto
         '
-        Me.txtBusPuesto.Location = New System.Drawing.Point(229, 72)
+        Me.txtBusPuesto.Location = New System.Drawing.Point(231, 359)
         Me.txtBusPuesto.Name = "txtBusPuesto"
         Me.txtBusPuesto.Size = New System.Drawing.Size(152, 39)
         Me.txtBusPuesto.TabIndex = 5
         '
         'txtBusEdad
         '
-        Me.txtBusEdad.Location = New System.Drawing.Point(434, 72)
+        Me.txtBusEdad.Location = New System.Drawing.Point(436, 359)
         Me.txtBusEdad.Name = "txtBusEdad"
         Me.txtBusEdad.Size = New System.Drawing.Size(152, 39)
         Me.txtBusEdad.TabIndex = 5
         '
         'btnBuscar
         '
-        Me.btnBuscar.Location = New System.Drawing.Point(648, 72)
+        Me.btnBuscar.Location = New System.Drawing.Point(650, 359)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(120, 39)
         Me.btnBuscar.TabIndex = 6
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.UseVisualStyleBackColor = True
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(32, 311)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(108, 32)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Nombre"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(32, 102)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(92, 32)
+        Me.Label5.TabIndex = 3
+        Me.Label5.Text = "Puesto"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(32, 175)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(70, 32)
+        Me.Label6.TabIndex = 4
+        Me.Label6.Text = "Edad"
+        '
+        'txtInNombre
+        '
+        Me.txtInNombre.Location = New System.Drawing.Point(171, 22)
+        Me.txtInNombre.Name = "txtInNombre"
+        Me.txtInNombre.Size = New System.Drawing.Size(417, 39)
+        Me.txtInNombre.TabIndex = 0
+        '
+        'txtInPuesto
+        '
+        Me.txtInPuesto.Location = New System.Drawing.Point(171, 102)
+        Me.txtInPuesto.Name = "txtInPuesto"
+        Me.txtInPuesto.Size = New System.Drawing.Size(417, 39)
+        Me.txtInPuesto.TabIndex = 1
+        '
+        'txtInEdad
+        '
+        Me.txtInEdad.Location = New System.Drawing.Point(171, 175)
+        Me.txtInEdad.Name = "txtInEdad"
+        Me.txtInEdad.Size = New System.Drawing.Size(417, 39)
+        Me.txtInEdad.TabIndex = 2
+        '
+        'btnInsertar
+        '
+        Me.btnInsertar.Location = New System.Drawing.Point(436, 229)
+        Me.btnInsertar.Name = "btnInsertar"
+        Me.btnInsertar.Size = New System.Drawing.Size(146, 46)
+        Me.btnInsertar.TabIndex = 3
+        Me.btnInsertar.Text = "Guardar"
+        Me.btnInsertar.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 32.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(808, 752)
+        Me.Controls.Add(Me.btnInsertar)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.txtBusEdad)
         Me.Controls.Add(Me.txtBusPuesto)
+        Me.Controls.Add(Me.txtInEdad)
+        Me.Controls.Add(Me.txtInPuesto)
+        Me.Controls.Add(Me.txtInNombre)
         Me.Controls.Add(Me.txtBusNombre)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgTrabajadores)
         Me.Controls.Add(Me.lblResultado)
@@ -172,4 +243,11 @@ Partial Class Form1
     Friend WithEvents txtBusPuesto As TextBox
     Friend WithEvents txtBusEdad As TextBox
     Friend WithEvents btnBuscar As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents txtInNombre As TextBox
+    Friend WithEvents txtInPuesto As TextBox
+    Friend WithEvents txtInEdad As TextBox
+    Friend WithEvents btnInsertar As Button
 End Class
