@@ -150,7 +150,10 @@ Public Class Form1
     End Sub
 
     Private Sub btnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        Dim query = " delete from trabajadores where id='" & idSel & "'; "
+        borrar(idSel)
+    End Sub
+    Sub borrar(id As Integer)
+        Dim query = " delete from trabajadores where id='" & id & "'; "
         Dim comando = New MySqlCommand(query, myCon)
         Try
             Dim reader = comando.ExecuteReader()
@@ -164,5 +167,36 @@ Public Class Form1
         txtInNombre.Text = ""
         txtInPuesto.Text = ""
         txtInEdad.Text = ""
+    End Sub
+    Private Sub dgTrabajadores_MouseClick(sender As Object, e As MouseEventArgs) Handles dgTrabajadores.MouseClick
+        If e.Button = MouseButtons.Right Then
+            Dim menu = New System.Windows.Forms.ContextMenuStrip()
+            Dim posicion = dgTrabajadores.HitTest(e.X, e.Y).RowIndex
+            If posicion > -1 Then
+                menu.Items.Add("Borrar").Name = "Borrar" & posicion
+                menu.Items.Add("Mostrar").Name = "Mostrar" & posicion
+            End If
+            menu.Show(dgTrabajadores, e.X, e.Y)
+            AddHandler menu.ItemClicked, AddressOf menuClick
+        End If
+    End Sub
+
+    Private Sub menuClick(sender As Object, e As ToolStripItemClickedEventArgs)
+        Dim nombre = e.ClickedItem.Name.ToString
+        If nombre.Contains("Borrar") Then
+            Dim posicion = nombre.Replace("Borrar", "")
+            Dim id = dgTrabajadores.Rows(posicion).Cells(0).Value.ToString
+            borrar(id)
+        End If
+        If nombre.Contains("Mostrar") Then
+            Dim posicion = nombre.Replace("Mostrar", "")
+            'Dim id = dgTrabajadores.Rows(posicion).Cells(0).Value.ToString
+            'borrar(id)
+            Dim res = "Id=" & dgTrabajadores.Rows(posicion).Cells(0).Value.ToString & vbLf
+            res = res & "Nombre=" & dgTrabajadores.Rows(posicion).Cells(1).Value.ToString & vbLf
+            res = res & "Puesto=" & dgTrabajadores.Rows(posicion).Cells(2).Value.ToString & vbLf
+            res = res & "Edad=" & dgTrabajadores.Rows(posicion).Cells(3).Value.ToString & vbLf
+            MessageBox.Show(res)
+        End If
     End Sub
 End Class
