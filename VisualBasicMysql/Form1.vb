@@ -1,6 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class Form1
     Private myCon As MySqlConnection
+    Private idSel As String
     Private Sub llenarTabla()
         Try
             Dim server = "localhost"
@@ -102,5 +103,49 @@ Public Class Form1
         txtInNombre.Text = ""
         txtInPuesto.Text = ""
         txtInEdad.Text = ""
+    End Sub
+
+    Private Sub dgTrabajadores_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgTrabajadores.CellClick
+        Dim sel = e.RowIndex
+        txtInNombre.Text = dgTrabajadores.Rows(sel).Cells(1).Value.ToString
+        txtInPuesto.Text = dgTrabajadores.Rows(sel).Cells(2).Value.ToString
+        txtInEdad.Text = dgTrabajadores.Rows(sel).Cells(3).Value.ToString
+        idSel = dgTrabajadores.Rows(sel).Cells(0).Value.ToString
+    End Sub
+
+    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        Dim mensajeError = ""
+        If txtInNombre.Text = "" Then
+            mensajeError = mensajeError & "Falta ingresar nombre " & vbLf
+        End If
+        If txtInPuesto.Text = "" Then
+            mensajeError = mensajeError & "Falta ingresar puesto" & vbLf
+        End If
+        If txtInEdad.Text = "" Then
+            mensajeError = mensajeError & "Falta ingresar edad" & vbLf
+        End If
+        If mensajeError = "" Then
+            Dim query = "update trabajadores set " &
+                " nombre='" & txtInNombre.Text & "',  " &
+                " puesto='" & txtInPuesto.Text & "',  " &
+                " edad='" & txtInEdad.Text & "'  " &
+                " where id='" & idSel & "'; "
+            Dim comando = New MySqlCommand(query, myCon)
+            Try
+                Dim reader = comando.ExecuteReader()
+                reader.Close()
+                dgTrabajadores.Rows.Clear()
+                dgTrabajadores.Refresh()
+                llenarTabla()
+            Catch ex As Exception
+                lblResultado.Text = ex.ToString
+            End Try
+        Else
+            MessageBox.Show(mensajeError)
+        End If
+        txtInNombre.Text = ""
+        txtInPuesto.Text = ""
+        txtInEdad.Text = ""
+
     End Sub
 End Class
