@@ -148,4 +148,21 @@ Public Class Form1
         txtInEdad.Text = ""
 
     End Sub
+
+    Private Sub btnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
+        Dim query = " delete from trabajadores where id='" & idSel & "'; "
+        Dim comando = New MySqlCommand(query, myCon)
+        Try
+            Dim reader = comando.ExecuteReader()
+            reader.Close()
+            dgTrabajadores.Rows.Clear()
+            dgTrabajadores.Refresh()
+            llenarTabla()
+        Catch ex As Exception
+            lblResultado.Text = ex.ToString
+        End Try
+        txtInNombre.Text = ""
+        txtInPuesto.Text = ""
+        txtInEdad.Text = ""
+    End Sub
 End Class

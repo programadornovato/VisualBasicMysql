@@ -43,6 +43,7 @@ Partial Class Form1
         Me.txtInEdad = New System.Windows.Forms.TextBox()
         Me.btnInsertar = New System.Windows.Forms.Button()
         Me.btnEditar = New System.Windows.Forms.Button()
+        Me.btnBorrar = New System.Windows.Forms.Button()
         CType(Me.dgTrabajadores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -211,11 +212,21 @@ Partial Class Form1
         Me.btnEditar.Text = "Editar"
         Me.btnEditar.UseVisualStyleBackColor = True
         '
+        'btnBorrar
+        '
+        Me.btnBorrar.Location = New System.Drawing.Point(59, 229)
+        Me.btnBorrar.Name = "btnBorrar"
+        Me.btnBorrar.Size = New System.Drawing.Size(114, 46)
+        Me.btnBorrar.TabIndex = 8
+        Me.btnBorrar.Text = "Borrar"
+        Me.btnBorrar.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 32.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(808, 752)
+        Me.Controls.Add(Me.btnBorrar)
         Me.Controls.Add(Me.btnEditar)
         Me.Controls.Add(Me.btnInsertar)
         Me.Controls.Add(Me.btnBuscar)
@@ -262,4 +273,5 @@ Partial Class Form1
     Friend WithEvents txtInEdad As TextBox
     Friend WithEvents btnInsertar As Button
     Friend WithEvents btnEditar As Button
+    Friend WithEvents btnBorrar As Button
 End Class
